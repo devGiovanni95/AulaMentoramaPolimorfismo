@@ -1,4 +1,4 @@
-public class ContaPoupanca extends Conta{
+public class ContaPoupanca extends Conta {
     private int diaAniversario;
     private double taxaDeJuros;
 
@@ -8,15 +8,34 @@ public class ContaPoupanca extends Conta{
         this.taxaDeJuros = taxaDeJuros;
     }
 
-    @Override
-    public double getSaldo() {
-        return this.saldo + this.taxaDeJuros*this.saldo;
+
+    public double getSaldo(int dia) {
+        if (dia >= this.diaAniversario) {
+           /*
+            return this.saldo + this.taxaDeJuros * this.saldo;
+            this.saldo *= this.taxaDeJuros;
+            this.saldo = this.saldo * this.taxaDeJuros;
+            */
+             this.saldo = this.taxaDeJuros * this.saldo;
+             return this.saldo;
+
+        } else {
+            return this.saldo;
+        }
     }
 
     @Override
     public boolean sacar(double quantia) {
         this.saldo -= quantia;
-        return  true;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "ContaPoupanca{" +
+                "diaAniversario=" + diaAniversario +
+                ", taxaDeJuros=" + taxaDeJuros +
+                '}';
     }
 }
 

@@ -5,7 +5,12 @@ public abstract class Conta {
     private String banco;
     protected double saldo;
 
-    public abstract double getSaldo();
+/*    public abstract double getSaldo(); como implementamos na conta poupanca uma sobrecarga de polimorfismo
+    o sistema nao aceita o saldo como abstrato*/
+    public  double getSaldo(){
+        return this.saldo;
+    }
+
 
     public Conta(int numero, int agencia, String banco, double saldo) {
         this.numero = numero;
@@ -24,7 +29,14 @@ public abstract class Conta {
                 '}';
     }
 
+    /*
     public abstract boolean sacar(double quantia);
+    como implementamos o saldo na poupanca de acordo com o dia nao podemos
+    deixar o sacar como metodo abstrato
+     */
+    public  boolean sacar(double quantia){
+        return false;
+    }
 
     public void depositar(double quantia) { this.saldo += quantia;}
 }

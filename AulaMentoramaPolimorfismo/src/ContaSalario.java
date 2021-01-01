@@ -8,7 +8,7 @@ public class ContaSalario extends Conta {
 
     @Override
     public String toString() {
-        return "ContaSalario{" +
+        return super.toString() + "ContaSalario{" +
                 "quantidadeSaques=" + quantidadeSaques +
                 ", saldo=" + saldo +
                 '}';
